@@ -87,7 +87,7 @@ See:
 ## 🧩 Used In
 
 - **Stellara – Gamified Personal Development App**  
-  https://github.com/Sarahw54545/fyp-gamified-personal-development-app
+  [https://github.com/Sarahw54545/fyp-gamified-personal-development-app](https://github.com/Sarahw54545/fyp-gamified-personal-development-app)
 
 ---
 
