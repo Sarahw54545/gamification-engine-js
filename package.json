@@ -1,0 +1,21 @@
+{
+  "name": "gamification-engine-js",
+  "version": "0.1.0",
+  "description": "A backend-driven, event-based gamification engine for XP, levels, and achievements.",
+  "main": "src/index.js",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "gamification",
+    "achievements",
+    "xp",
+    "progression",
+    "backend",
+    "game-design"
+  ],
+  "author": "Sarah Walsh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sarahw54545/gamification-engine-js"
+  }
+}

@@ -3,9 +3,9 @@ export function matchesCriteria(criteria, userState, event) {
   
     switch (criteria.type) {
 
-    // Achievements that have to reach a certain number / completed multiple times e.g. Completed Goals = 10 (Check count of current user state vs criteria count)
+    // Achievements that involved triggering events multiple times reach a certain count (Check count of current user state vs criteria count)
     case "counter":
-      return userState.counters[event.type] || 0;
+      return userState.counters[criteria.event] || 0;
 
     // Achievements that are triggered by a particular event e.g. logging in (Check event result vs criteria to mark event as completed)
     case "event":

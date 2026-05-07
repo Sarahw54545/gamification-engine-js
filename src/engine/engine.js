@@ -16,7 +16,7 @@ export function evaluateGamification({
     // For each achievement
     achievements.forEach((achievement) => {
 
-        // Read current user state for each achievement - If it doesn't already have a user state: create an empty state using ensureAchievementState Util, if it does have a user state: read state progress
+        // Check userState - Add an empty achievement state if it doesn't have one already
         ensureAchievementState(userState, achievement.key);
 
         // Achievement State = Current user state at the point of reading the userState value
@@ -30,13 +30,10 @@ export function evaluateGamification({
 
             const alreadyCompletedToday = achievementState.lastCompletedDate && isSameDay(achievementState.lastCompletedDate, today);
 
-            if (alreadyCompletedToday) {
-                return;
-            }
+            if (alreadyCompletedToday) return;
 
             if (matchesCriteria(achievement.criteria, userState, event)) {
 
-                const previousDate = achievementState.lastCompletedDate;
                 achievementState.lastCompletedDate = new Date(today);
 
                 userState.totalXp += achievement.xp;
@@ -55,7 +52,7 @@ export function evaluateGamification({
         // -------------------------
         if (achievement.type === "progressive") {
 
-            // Read current value of the counter for the achievement
+            // Read criteria of progressive achievement and compare to the current value in userState
             const currentValue = matchesCriteria(achievement.criteria, userState, event);
 
             // Check which tiers have already been completed to prevent awarding XP twice
@@ -68,6 +65,7 @@ export function evaluateGamification({
                     currentValue >= tier.threshold && !achievementState.completedTiers.includes(tier.threshold)
                 ) {
                     achievementState.completedTiers.push(tier.threshold);
+
                     userState.totalXp += tier.xp;
                     xpAwarded += tier.xp;
 
@@ -89,7 +87,7 @@ export function evaluateGamification({
             if (nextTier) {
                 progressedAchievements.push({
                     key: achievement.key,
-                    currentValue: userState.counters[achievement.criteria.event] || 0,
+                    currentValue,
                     nextThreshold: nextTier.threshold
                 });
             }
