@@ -4,6 +4,10 @@ A backend‑driven, event‑based gamification engine for awarding **XP, levels,
 
 This library was developed as part of the [Stellara Personal Development Platform](https://github.com/Sarahw54545/fyp-gamified-personal-development-app) and is designed to be **framework‑agnostic**, reusable, and resistant to common progression exploits.
 
+## 📘 Documentation 
+
+- [GitHub Pages Site](https://sarahw54545.github.io/gamification-engine-js/)
+
 ---
 
 ## ✨ Features
