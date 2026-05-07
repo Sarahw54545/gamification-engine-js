@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A backend-driven, event-based gamification engine for XP, levels, and achievements.",
   "main": "src/index.js",
+  "types": "index.d.ts",
   "type": "module",
   "license": "MIT",
   "keywords": [
